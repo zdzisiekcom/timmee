@@ -1,0 +1,14 @@
+TODO 
+--------------------
+
+Celem prezentacji bedzie omówienie: 
+- jak organizować kod (DI, moduły, services, filters, directives)
+- gdzie w aplikacji żyją modele danych i jak działają $scope'y
+- czym jest i jak działa data-binding
+- jak odtworzyć stan aplikacji (routing)
+- jak pracować z REST
+- dlaczego łatwo testować unitowo dobrze napisany kod angularowy
+
+Apka 
+ * 
+
