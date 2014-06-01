@@ -31,7 +31,7 @@ server.route({
 // static route for files
 server.route({
     method: 'GET',
-    path: '/{param}',
+    path: '/{param*}',
     handler:  {
 		directory : {
 			path : 'app'
