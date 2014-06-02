@@ -1,6 +1,13 @@
 
+Install bower
 
-Start application:
+npm install -g bower
 
-npm install 
+Install dependencies:
+
+npm install
+bower install
+
+
+Start application
 npm start
