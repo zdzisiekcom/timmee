@@ -22,6 +22,7 @@
     "angular-cookies": "1.2.15",
     "angular-sanitize": "1.2.15",
     "angular-route": "1.2.15",
+    "angular-mocks": "1.2.15",
     "json3": "~3.2.6",
     "jquery": "~1.11.0"
   }

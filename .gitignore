@@ -1,1 +1,7 @@
 /node_modules
+components/
+
+.idea
+*.iml
+.settings
+.project

@@ -6,9 +6,19 @@
   "repository": "https://github.com/zdzisiekcom/timmme",
   "license": "MIT",
   "devDependencies": {
-    "hapi": "^5.0.0"
+    "hapi": "^5.0.0",
+    "karma": "^0.12.16",
+    "karma-jasmine": "~0.1.5",
+    "karma-chrome-launcher": "~0.1.4"
   },
   "scripts": {
-    "start": "node server.js"
+    "postinstall": "bower install",
+
+    "prestart": "npm install",
+    "start": "node server.js",
+
+    "pretest": "npm install",
+    "test" : "karma start test/karma.conf.js",
+    "test-single-run": "karma start test/karma.conf.js  --single-run"
   }
 }
