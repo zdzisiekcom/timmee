@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="node_modules/hapi/examples/|node_modules/hapi/test/pack/--loader/lib/|node_modules/hapi/node_modules/shot/examples/|node_modules/hapi/node_modules/nipple/|node_modules/hapi/test/pack/--handler/|node_modules/hapi/test/pack/--auth/|node_modules/hapi/test/pack/--context/lib/|app/components/angular-cookies/|node_modules/hapi/node_modules/multiparty/node_modules/readable-stream/node_modules/core-util-is/|node_modules/hapi/node_modules/multiparty/node_modules/readable-stream/lib/|node_modules/hapi/node_modules/multiparty/node_modules/readable-stream/node_modules/isarray/|app/components/angular-sanitize/|node_modules/hapi/node_modules/cryptiles/|app/components/jquery/src/var/|node_modules/hapi/node_modules/catbox/lib/|node_modules/hapi/node_modules/optimist/test/_/|node_modules/hapi/node_modules/catbox-memory/test/|app/components/jquery/src/traversing/|app/components/jquery/src/manipulation/|node_modules/hapi/examples/directory/|node_modules/hapi/node_modules/multiparty/node_modules/readable-stream/node_modules/string_decoder/|node_modules/hapi/node_modules/topo/lib/|node_modules/hapi/node_modules/async/lib/|node_modules/hapi/examples/views/handlebars/|node_modules/hapi/node_modules/shot/lib/|app/components/jquery/src/attributes/|app/components/jquery/src/ajax/|app/components/jquery/src/traversing/var/|node_modules/hapi/node_modules/optimist/test/|node_modules/hapi/node_modules/boom/test/|node_modules/hapi/node_modules/multiparty/node_modules/readable-stream/node_modules/core-util-is/lib/|node_modules/hapi/test/pack/--test2/lib/|node_modules/hapi/node_modules/iron/test/|node_modules/hapi/node_modules/multiparty/node_modules/readable-stream/node_modules/isarray/build/|app/components/angular/|app/components/jquery/src/|node_modules/hapi/node_modules/joi/node_modules/isemail/test/|node_modules/hapi/node_modules/joi/lib/|node_modules/hapi/node_modules/iron/lib/|node_modules/hapi/node_modules/catbox/|node_modules/hapi/node_modules/optimist/node_modules/wordwrap/test/|node_modules/hapi/node_modules/hoek/test/modules/|node_modules/hapi/node_modules/catbox-memory/lib/|node_modules/hapi/node_modules/qs/|node_modules/hapi/node_modules/multiparty/node_modules/stream-counter/test/|node_modules/hapi/node_modules/joi/test/|node_modules/hapi/node_modules/catbox/examples/|node_modules/hapi/|app/components/jquery/dist/|node_modules/hapi/node_modules/joi/node_modules/isemail/lib/|app/components/jquery/src/event/|app/components/jquery/src/queue/|node_modules/hapi/node_modules/shot/test/|node_modules/hapi/node_modules/optimist/node_modules/minimist/test/|node_modules/hapi/node_modules/optimist/node_modules/minimist/|node_modules/hapi/node_modules/hoek/test/|node_modules/hapi/test/templates/valid/helpers/|node_modules/hapi/node_modules/multiparty/node_modules/readable-stream/node_modules/inherits/|node_modules/hapi/node_modules/boom/|node_modules/hapi/examples/views/mixed/|node_modules/hapi/node_modules/topo/test/|app/components/jquery/src/core/|node_modules/hapi/node_modules/catbox-memory/|node_modules/hapi/node_modules/optimist/example/|node_modules/hapi/node_modules/nipple/test/|node_modules/hapi/test/templates/valid/helpers/tools/|app/components/jquery/src/css/|node_modules/hapi/lib/response/|node_modules/hapi/node_modules/hoek/|node_modules/hapi/node_modules/optimist/node_modules/minimist/example/|node_modules/hapi/node_modules/multiparty/node_modules/readable-stream/|app/components/jquery/src/css/var/|node_modules/hapi/node_modules/mime/|node_modules/hapi/node_modules/hoek/lib/|node_modules/hapi/examples/views/jade/|node_modules/hapi/node_modules/multiparty/node_modules/stream-counter/|node_modules/hapi/node_modules/lru-cache/lib/|node_modules/hapi/node_modules/optimist/node_modules/wordwrap/|node_modules/hapi/node_modules/shot/|node_modules/hapi/lib/|app/components/angular-route/|app/components/jquery/src/ajax/var/|app/components/jquery/src/exports/|node_modules/hapi/node_modules/semver/|node_modules/hapi/test/pack/--child/lib/|node_modules/hapi/test/pack/--loaded/lib/|node_modules/hapi/node_modules/cryptiles/lib/|node_modules/hapi/node_modules/cryptiles/test/|node_modules/hapi/test/pack/--deps1/|node_modules/hapi/test/pack/--skip/lib/|app/components/jquery/src/manipulation/var/|node_modules/hapi/node_modules/optimist/|node_modules/hapi/test/pack/--deps2/|node_modules/hapi/node_modules/multiparty/|app/components/jquery/src/effects/|node_modules/hapi/node_modules/topo/|node_modules/hapi/node_modules/boom/lib/|app/components/jquery/src/data/|node_modules/hapi/node_modules/joi/|node_modules/hapi/node_modules/optimist/node_modules/wordwrap/example/|app/components/jquery/src/sizzle/dist/|app/components/angular-resource/|app/components/jquery/src/core/var/|node_modules/hapi/node_modules/lru-cache/test/|node_modules/hapi/examples/views/cms/|node_modules/hapi/node_modules/iron/|node_modules/hapi/test/pack/--viewsLoader/|node_modules/hapi/node_modules/catbox/test/|node_modules/hapi/examples/file/|app/components/json3/lib/|node_modules/hapi/node_modules/joi/node_modules/isemail/|node_modules/hapi/node_modules/nipple/lib/|node_modules/hapi/test/pack/--deps3/|node_modules/hapi/test/pack/--views/lib/|node_modules/hapi/test/pack/--afterErr/|node_modules/hapi/test/|node_modules/hapi/test/pack/--test1/lib/|node_modules/hapi/node_modules/negotiator/lib/|node_modules/hapi/node_modules/semver/test/" kind="src" path=""/>
+	<classpathentry kind="src" path="app/components/angular"/>
+	<classpathentry kind="src" path="app/components/angular-cookies"/>
+	<classpathentry kind="src" path="app/components/angular-resource"/>
+	<classpathentry kind="src" path="app/components/angular-route"/>
+	<classpathentry kind="src" path="app/components/angular-sanitize"/>
+	<classpathentry kind="src" path="app/components/jquery/dist"/>
+	<classpathentry excluding="var/|traversing/|manipulation/|attributes/|ajax/|traversing/var/|event/|queue/|core/|css/|css/var/|ajax/var/|exports/|manipulation/var/|effects/|data/|sizzle/dist/|core/var/" kind="src" path="app/components/jquery/src"/>
+	<classpathentry excluding="var/" kind="src" path="app/components/jquery/src/ajax"/>
+	<classpathentry kind="src" path="app/components/jquery/src/ajax/var"/>
+	<classpathentry kind="src" path="app/components/jquery/src/attributes"/>
+	<classpathentry excluding="var/" kind="src" path="app/components/jquery/src/core"/>
+	<classpathentry kind="src" path="app/components/jquery/src/core/var"/>
+	<classpathentry excluding="var/" kind="src" path="app/components/jquery/src/css"/>
+	<classpathentry kind="src" path="app/components/jquery/src/css/var"/>
+	<classpathentry kind="src" path="app/components/jquery/src/data"/>
+	<classpathentry kind="src" path="app/components/jquery/src/effects"/>
+	<classpathentry kind="src" path="app/components/jquery/src/event"/>
+	<classpathentry kind="src" path="app/components/jquery/src/exports"/>
+	<classpathentry excluding="var/" kind="src" path="app/components/jquery/src/manipulation"/>
+	<classpathentry kind="src" path="app/components/jquery/src/manipulation/var"/>
+	<classpathentry kind="src" path="app/components/jquery/src/queue"/>
+	<classpathentry kind="src" path="app/components/jquery/src/sizzle/dist"/>
+	<classpathentry excluding="var/" kind="src" path="app/components/jquery/src/traversing"/>
+	<classpathentry kind="src" path="app/components/jquery/src/traversing/var"/>
+	<classpathentry kind="src" path="app/components/jquery/src/var"/>
+	<classpathentry kind="src" path="app/components/json3/lib"/>
+	<classpathentry excluding="examples/|test/pack/--loader/lib/|node_modules/shot/examples/|node_modules/nipple/|test/pack/--handler/|test/pack/--auth/|test/pack/--context/lib/|node_modules/multiparty/node_modules/readable-stream/node_modules/core-util-is/|node_modules/multiparty/node_modules/readable-stream/lib/|node_modules/multiparty/node_modules/readable-stream/node_modules/isarray/|node_modules/cryptiles/|node_modules/catbox/lib/|node_modules/optimist/test/_/|node_modules/catbox-memory/test/|examples/directory/|node_modules/multiparty/node_modules/readable-stream/node_modules/string_decoder/|node_modules/topo/lib/|node_modules/async/lib/|examples/views/handlebars/|node_modules/shot/lib/|node_modules/optimist/test/|node_modules/boom/test/|node_modules/multiparty/node_modules/readable-stream/node_modules/core-util-is/lib/|test/pack/--test2/lib/|node_modules/iron/test/|node_modules/multiparty/node_modules/readable-stream/node_modules/isarray/build/|node_modules/joi/node_modules/isemail/test/|node_modules/joi/lib/|node_modules/iron/lib/|node_modules/catbox/|node_modules/optimist/node_modules/wordwrap/test/|node_modules/hoek/test/modules/|node_modules/catbox-memory/lib/|node_modules/qs/|node_modules/multiparty/node_modules/stream-counter/test/|node_modules/joi/test/|node_modules/catbox/examples/|node_modules/joi/node_modules/isemail/lib/|node_modules/shot/test/|node_modules/optimist/node_modules/minimist/test/|node_modules/optimist/node_modules/minimist/|node_modules/hoek/test/|test/templates/valid/helpers/|node_modules/multiparty/node_modules/readable-stream/node_modules/inherits/|node_modules/boom/|examples/views/mixed/|node_modules/topo/test/|node_modules/catbox-memory/|node_modules/optimist/example/|node_modules/nipple/test/|test/templates/valid/helpers/tools/|lib/response/|node_modules/hoek/|node_modules/optimist/node_modules/minimist/example/|node_modules/multiparty/node_modules/readable-stream/|node_modules/mime/|node_modules/hoek/lib/|examples/views/jade/|node_modules/multiparty/node_modules/stream-counter/|node_modules/lru-cache/lib/|node_modules/optimist/node_modules/wordwrap/|node_modules/shot/|lib/|node_modules/semver/|test/pack/--child/lib/|test/pack/--loaded/lib/|node_modules/cryptiles/lib/|node_modules/cryptiles/test/|test/pack/--deps1/|test/pack/--skip/lib/|node_modules/optimist/|test/pack/--deps2/|node_modules/multiparty/|node_modules/topo/|node_modules/boom/lib/|node_modules/joi/|node_modules/optimist/node_modules/wordwrap/example/|node_modules/lru-cache/test/|examples/views/cms/|node_modules/iron/|test/pack/--viewsLoader/|node_modules/catbox/test/|examples/file/|node_modules/joi/node_modules/isemail/|node_modules/nipple/lib/|test/pack/--deps3/|test/pack/--views/lib/|test/pack/--afterErr/|test/|test/pack/--test1/lib/|node_modules/negotiator/lib/|node_modules/semver/test/" kind="src" path="node_modules/hapi"/>
+	<classpathentry excluding="directory/|views/handlebars/|views/mixed/|views/jade/|views/cms/|file/" kind="src" path="node_modules/hapi/examples"/>
+	<classpathentry kind="src" path="node_modules/hapi/examples/directory"/>
+	<classpathentry kind="src" path="node_modules/hapi/examples/file"/>
+	<classpathentry kind="src" path="node_modules/hapi/examples/views/cms"/>
+	<classpathentry kind="src" path="node_modules/hapi/examples/views/handlebars"/>
+	<classpathentry kind="src" path="node_modules/hapi/examples/views/jade"/>
+	<classpathentry kind="src" path="node_modules/hapi/examples/views/mixed"/>
+	<classpathentry excluding="response/" kind="src" path="node_modules/hapi/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/lib/response"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/async/lib"/>
+	<classpathentry excluding="test/|lib/" kind="src" path="node_modules/hapi/node_modules/boom"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/boom/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/boom/test"/>
+	<classpathentry excluding="lib/|examples/|test/" kind="src" path="node_modules/hapi/node_modules/catbox"/>
+	<classpathentry excluding="test/|lib/" kind="src" path="node_modules/hapi/node_modules/catbox-memory"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/catbox-memory/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/catbox-memory/test"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/catbox/examples"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/catbox/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/catbox/test"/>
+	<classpathentry excluding="lib/|test/" kind="src" path="node_modules/hapi/node_modules/cryptiles"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/cryptiles/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/cryptiles/test"/>
+	<classpathentry excluding="test/modules/|test/|lib/" kind="src" path="node_modules/hapi/node_modules/hoek"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/hoek/lib"/>
+	<classpathentry excluding="modules/" kind="src" path="node_modules/hapi/node_modules/hoek/test"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/hoek/test/modules"/>
+	<classpathentry excluding="test/|lib/" kind="src" path="node_modules/hapi/node_modules/iron"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/iron/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/iron/test"/>
+	<classpathentry excluding="node_modules/isemail/test/|lib/|test/|node_modules/isemail/lib/|node_modules/isemail/" kind="src" path="node_modules/hapi/node_modules/joi"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/joi/lib"/>
+	<classpathentry excluding="test/|lib/" kind="src" path="node_modules/hapi/node_modules/joi/node_modules/isemail"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/joi/node_modules/isemail/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/joi/node_modules/isemail/test"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/joi/test"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/lru-cache/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/lru-cache/test"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/mime"/>
+	<classpathentry excluding="node_modules/readable-stream/node_modules/core-util-is/|node_modules/readable-stream/lib/|node_modules/readable-stream/node_modules/isarray/|node_modules/readable-stream/node_modules/string_decoder/|node_modules/readable-stream/node_modules/core-util-is/lib/|node_modules/readable-stream/node_modules/isarray/build/|node_modules/stream-counter/test/|node_modules/readable-stream/node_modules/inherits/|node_modules/readable-stream/|node_modules/stream-counter/" kind="src" path="node_modules/hapi/node_modules/multiparty"/>
+	<classpathentry excluding="node_modules/core-util-is/|lib/|node_modules/isarray/|node_modules/string_decoder/|node_modules/core-util-is/lib/|node_modules/isarray/build/|node_modules/inherits/" kind="src" path="node_modules/hapi/node_modules/multiparty/node_modules/readable-stream"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/multiparty/node_modules/readable-stream/lib"/>
+	<classpathentry excluding="lib/" kind="src" path="node_modules/hapi/node_modules/multiparty/node_modules/readable-stream/node_modules/core-util-is"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/multiparty/node_modules/readable-stream/node_modules/core-util-is/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/multiparty/node_modules/readable-stream/node_modules/inherits"/>
+	<classpathentry excluding="build/" kind="src" path="node_modules/hapi/node_modules/multiparty/node_modules/readable-stream/node_modules/isarray"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/multiparty/node_modules/readable-stream/node_modules/isarray/build"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/multiparty/node_modules/readable-stream/node_modules/string_decoder"/>
+	<classpathentry excluding="test/" kind="src" path="node_modules/hapi/node_modules/multiparty/node_modules/stream-counter"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/multiparty/node_modules/stream-counter/test"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/negotiator/lib"/>
+	<classpathentry excluding="test/|lib/" kind="src" path="node_modules/hapi/node_modules/nipple"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/nipple/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/nipple/test"/>
+	<classpathentry excluding="test/_/|test/|node_modules/wordwrap/test/|node_modules/minimist/test/|node_modules/minimist/|example/|node_modules/minimist/example/|node_modules/wordwrap/|node_modules/wordwrap/example/" kind="src" path="node_modules/hapi/node_modules/optimist"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/optimist/example"/>
+	<classpathentry excluding="test/|example/" kind="src" path="node_modules/hapi/node_modules/optimist/node_modules/minimist"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/optimist/node_modules/minimist/example"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/optimist/node_modules/minimist/test"/>
+	<classpathentry excluding="test/|example/" kind="src" path="node_modules/hapi/node_modules/optimist/node_modules/wordwrap"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/optimist/node_modules/wordwrap/example"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/optimist/node_modules/wordwrap/test"/>
+	<classpathentry excluding="_/" kind="src" path="node_modules/hapi/node_modules/optimist/test"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/optimist/test/_"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/qs"/>
+	<classpathentry excluding="test/" kind="src" path="node_modules/hapi/node_modules/semver"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/semver/test"/>
+	<classpathentry excluding="examples/|lib/|test/" kind="src" path="node_modules/hapi/node_modules/shot"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/shot/examples"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/shot/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/shot/test"/>
+	<classpathentry excluding="lib/|test/" kind="src" path="node_modules/hapi/node_modules/topo"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/topo/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/node_modules/topo/test"/>
+	<classpathentry excluding="pack/--loader/lib/|pack/--handler/|pack/--auth/|pack/--context/lib/|pack/--test2/lib/|templates/valid/helpers/|templates/valid/helpers/tools/|pack/--child/lib/|pack/--loaded/lib/|pack/--deps1/|pack/--skip/lib/|pack/--deps2/|pack/--viewsLoader/|pack/--deps3/|pack/--views/lib/|pack/--afterErr/|pack/--test1/lib/" kind="src" path="node_modules/hapi/test"/>
+	<classpathentry kind="src" path="node_modules/hapi/test/pack/--afterErr"/>
+	<classpathentry kind="src" path="node_modules/hapi/test/pack/--auth"/>
+	<classpathentry kind="src" path="node_modules/hapi/test/pack/--child/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/test/pack/--context/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/test/pack/--deps1"/>
+	<classpathentry kind="src" path="node_modules/hapi/test/pack/--deps2"/>
+	<classpathentry kind="src" path="node_modules/hapi/test/pack/--deps3"/>
+	<classpathentry kind="src" path="node_modules/hapi/test/pack/--handler"/>
+	<classpathentry kind="src" path="node_modules/hapi/test/pack/--loaded/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/test/pack/--loader/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/test/pack/--skip/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/test/pack/--test1/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/test/pack/--test2/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/test/pack/--views/lib"/>
+	<classpathentry kind="src" path="node_modules/hapi/test/pack/--viewsLoader"/>
+	<classpathentry excluding="tools/" kind="src" path="node_modules/hapi/test/templates/valid/helpers"/>
+	<classpathentry kind="src" path="node_modules/hapi/test/templates/valid/helpers/tools"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
