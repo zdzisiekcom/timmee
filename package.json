@@ -9,6 +9,6 @@
     "hapi": "^5.0.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   }
 }

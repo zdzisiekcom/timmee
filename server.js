@@ -1,23 +1,19 @@
-
 var Hapi = require('hapi');
+
+var entries_module = require('./timelog');
+
 
 // Create a server with a host and port
 var server = Hapi.createServer('localhost', 8000 , {
 	cors : true,
 });
 
-// Hello world route
-server.route({
-    method: 'GET',
-    path: '/user',
-    handler: function (request, reply) {
 
-          reply({ name: 'John' });
-
-    }
-});
+// log entries rest server
+server.route(entries_module);
 
 
+// angular index
 server.route({
     method: 'GET',
     path: '/',
