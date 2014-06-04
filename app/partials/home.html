@@ -19,19 +19,22 @@
             <table class="table table-striped table-hover ">
                 <thead>
                 <tr>
-                    <th>Date</th>
-                    <th>Tag</th>
+                    <th>Start data</th>
+                    <th>End data</th>
+                    <th>Project</th>
                     <th>Description</th>
-                    <th>Time spand in min</th>
+                    <th>Task</th>
                 </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="timeEvent in timeline | filter:query | orderBy:orderProp ">
-                        <td>{{timeEvent.date}}</td>
-                        <td>{{timeEvent.tag}}</td>
+                        <td>{{timeEvent.start_data}}</td>
+                        <td>{{timeEvent.end_data}}</td>
+                        <td>{{timeEvent.project}}</td>
                         <td>{{timeEvent.description}}</td>
-                        <td>{{timeEvent.timeSpend}}</td>
+                        <td>{{timeEvent.task}}</td>
                     </tr>
+
                 </tbody>
             </table>
             <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div><!-- /example -->

@@ -1,7 +1,9 @@
 'use strict';
 angular.module('timmee', [
     'ngRoute',
-    'timmee.controller'
+    'service',
+    'controller'
+
 ]).
     config(["$routeProvider", function($routeProvider){
         $routeProvider.when('/home', {templateUrl: 'partials/home.html', controller : 'TimelineCtrl'});

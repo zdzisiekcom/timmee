@@ -22,6 +22,8 @@ module.exports = function(config){
             'karma-jasmine'
         ],
 
+	captureTimeout: 6000,
+
         junitReporter : {
             outputFile: 'test_out/unit.xml',
             suite: 'unit'

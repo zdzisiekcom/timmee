@@ -25,7 +25,12 @@ module.exports = [ {
 	}
 } ];
 
-var entries = [];
+var entries = [
+
+    {id:1, description:'Im learning angular js', start_data: '2014-05-01 : 14:00', end_data: '2014-05-01 : 16:00', project: 'AngularIsCool', task : '#34353'},
+    {id:2, description:'Setting my first REST service', start_data: '2014-05-02 : 10:10', end_data: '2014-05-01 : 16:01', project: 'SpringBoot', task : '#44553'},
+    {id:3, description:'How to write a test', start_data: '2014-05-04 : 09:10', end_data: '2014-05-04 : 13:55', project: 'xUnit', task : '#54353'}
+];
 
 function getEntries(request, reply) {
 
