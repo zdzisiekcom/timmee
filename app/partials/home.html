@@ -1,26 +1,39 @@
-<div>
-    <div>
-        Search: <input ng-model="query">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="page-header">
+            <h1 id="tables">Timelinse</h1>
+        </div>
+
+
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="control-label">Szukaj</label>
+                <div class="input-group">
+                    <span class="input-group-addon">Full search</span>
+                    <input type="text" class="form-control" ng-model="query">
+                </div>
+            </div>
+        </div>
+
+        <div class="bs-component">
+            <table class="table table-striped table-hover ">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Tag</th>
+                    <th>Description</th>
+                    <th>Time spand in min</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="timeEvent in timeline | filter:query | orderBy:orderProp ">
+                        <td>{{timeEvent.date}}</td>
+                        <td>{{timeEvent.tag}}</td>
+                        <td>{{timeEvent.description}}</td>
+                        <td>{{timeEvent.timeSpend}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div><!-- /example -->
     </div>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Date</th>
-            <th>Tag</th>
-            <th>Description</th>
-            <th>Time spand in min</th>
-        </tr>
-        </thead>
-        <tbody>
-
-        <tr ng-repeat="timeEvent in timeline | filter:query">
-            <td>{{timeEvent.date}}</td>
-            <td>{{timeEvent.tag}}</td>
-            <td>{{timeEvent.description}}</td>
-            <td>{{timeEvent.timeSpend}}</td>
-        </tr>
-
-       </tbody>
-    </table>
-
 </div>

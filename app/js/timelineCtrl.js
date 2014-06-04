@@ -6,4 +6,6 @@ timelineCtrl.controller("TimelineCtrl", function($scope) {
         {'date' : '2014-05-22', 'tag' : 'angularjs', 'description' : 'I know what is scope' , 'timeSpend' : '68'},
         {'date' : '2014-05-23', 'tag' : 'angularjs', 'description' : 'Weee...my first contriller' , 'timeSpend' : '123' }
     ];
+
+    $scope.orderProp = 'timeSpend';
 });
