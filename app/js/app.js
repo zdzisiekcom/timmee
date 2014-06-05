@@ -2,7 +2,9 @@
 angular.module('timmee', [
     'ngRoute',
     'service',
-    'controller'
+    'controller',
+    'popup',
+    'mgcrea.ngStrap'
 
 ]).
     config(["$routeProvider", function($routeProvider){
