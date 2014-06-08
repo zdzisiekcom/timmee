@@ -32,6 +32,135 @@
 
 <section>
     <section>
+    <h3>JavaScript jest wszędzie</h3>
+    <ul>
+        <li>Jest w przeglądarce</li>
+        <li>Jest na serwerze</li>
+        <li>Działa jako język skryptowy</li>
+        <li>Nawet w JVM-ie można go wcisnąć</li>
+        <li>w dodatku jest językiem funkcyjnym</li>
+    </ul>
+    </section>
+    <section>
+        <h2>na serwerze</h2>
+        <ul>
+            <li>node.js - v8 z chrome</li>
+            <li>Rhino - od mozilli</li>
+            <li>Nashorn - od oracle</li>
+
+            <pre>
+            <code ng-non-bindable>
+            
+    var http = require('http');
+
+    var server = http.createServer(
+      function (request, res) {
+        res.writeHead(200, {"Content-Type": "text/plain"});
+        res.end("Hello World\n");
+    });
+
+    server.listen(8000);
+            </code>
+            </pre>
+        </ul>
+    </section>
+    <section>
+        <h2>Funkcje, funkcje, funkcje</h2>
+        <pre>
+            <code>
+function filter(items, f) {
+    var j = 0;
+    var result = [];
+    for(var i in items){
+        if (f(items[i]) == true){
+            result[j++] = items[i];
+        };
+    }
+    return result;  
+}   
+            </code>
+        </pre>
+    </section>
+    <section>        
+        <pre>
+            <code>
+    var timelog = [{
+        "project" : 'idea',
+        "time"  : 128
+    }, {
+        "project" : "efigence",
+        "time"  : 283
+    }, {
+        "project" : "idea",
+        "time"  : 338
+    }];
+
+    var efi = filter(timelog, function(item){
+        return item.project === "efigence";
+    });    
+            </code>
+        </pre>
+    </section>
+    <section>
+        <p>Oczywiście podstawowe funkcje mamy już wbudowane</p>
+            <button onclick="alert('Total time: ' + total + ' \n\n      ' + byPrj )">
+                        test
+            </button>
+
+        <pre>
+        <code>
+var total = timelog.reduce(function(start, log){
+    return start + log.time;
+}, 0);
+
+
+var byProject = timelog.reduce(function(sum, item){
+    if (sum[item.project] == undefined) {
+        sum[item.project] = 0;
+    }
+    sum[item.project]+=item.time;
+    return sum;
+}, {});
+
+        </code>
+        </pre>
+<script type="text/javascript">
+    
+    var timelog = [{
+        "project" : 'idea',
+        "time"  : 128
+    }, {
+        "project" : "efigence",
+        "time"  : 283
+    }, {
+        "project" : "idea",
+        "time"  : 338
+    }];
+
+var total = timelog.reduce(function(start, log){
+    return start + log.time;
+}, 0);
+
+var byProject = timelog.reduce(function(sum, item){
+    if (sum[item.project] == undefined) {
+        sum[item.project] = 0;
+    }
+    sum[item.project]+=item.time;
+    return sum;
+}, {});
+
+var byPrj = 'W podziale na projekty\n';
+for(var k in byProject){
+    byPrj += k + ' = ' + byProject[k] + '\n';
+}
+
+</script>        
+    </section>
+</section>
+
+
+<section>
+    <section>
         <h2>AngularJS</h2>
         <ul>
             <li>Produkt Google (Open source)</li>
