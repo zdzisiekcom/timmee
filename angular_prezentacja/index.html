@@ -724,17 +724,69 @@ for(var k in byProject){
 
 
 <section>
+    <section>
     <h3>Co robi Mateusz</h3>
     <ul>
+        <li>Services</li>
         <li>Filtry</li>
         <li>Dyrektywy (AEC)</li>
-        <li>Services</li>
     </ul>
     <pre>
         <code>
             Proste przyklady jak się da to w prezentacji
         </code>
     </pre>
+    </section>
+
+    <section>
+        <h3>Filtry</h3>
+        <p>Służą do przetworzenia dancyh prezentowanych użytkownikowi</p>
+
+        <div ng-controller="ScopeController">
+            <p>
+                Tekst <input type="text" ng-model="msg"/>
+                albo liczbę <input type="text"  ng-model="numbermsg" />
+            </p>
+            możemy zaprezentować "{{msg | uppercase}}" użytkownikowi <br/>
+            lub sformatować {{numbermsg | number:2 | currency :'£'}}
+        </div>
+        <pre>
+        <code ng-non-bindable>
+    <input type="text" ng-model="msg"/>
+    możemy zaprezentować "{{msg | uppercase}}" użytkownikowi
+
+    <input type="text"  ng-model="numbermsg" />
+    lub sformatować {{numbermsg | number:2 | currency :'£'}}
+        </code>
+        </pre>
+    </section>
+
+    <section>
+        <h2>Filtr do filtrowania</h2>
+
+        <div ng-controller="ScopeController">
+            <p>Szukaj: <input type="text" ng-model="search"/> <br/>
+            <ul>
+                <li ng-repeat="el in elements | filter:search">
+                    {{el}}
+                </li>
+            </ul>
+            </p>
+        </div>
+
+        <pre>
+        <code ng-non-bindable>
+    <input type="text" ng-model="szukaj"/>
+    <ul>
+        <li ng-repeat="el in elements | filter:szukaj">
+            {{el}}
+        </li>
+    </ul>
+        </code>
+        </pre>
+    </section>
+    
+
 </section>
 
 
