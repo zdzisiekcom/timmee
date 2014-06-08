@@ -34,8 +34,8 @@
     <h3>Co robi Mateusz</h3>
     <ul>
         <li>Filtry</li>
-        <li>Dyrektywy (AEC) </li>
-        <li>Services </li>
+        <li>Dyrektywy (AEC)</li>
+        <li>Services</li>
     </ul>
     <pre>
         <code>
@@ -45,6 +45,7 @@
 </section>
 
 <section>
+    <section>
     <h3>Co robi Pawel</h3>
     <ul>
         <li>$scope i data-binding</li>
@@ -57,6 +58,313 @@
             Proste przyklady jak się da to w prezentacji
         </code>
     </pre>
+    </section>
+
+
+    <section>
+        <h3>expression</h3>
+
+        <p>3 + 3 = {{3 + 3}}</p>
+
+        <p>JavaScript = {{'Java' + 'Script' }}</p>
+
+        <p>true === false is {{true === false}}</p>
+
+        <p>wybaczają  -{{a.b.c}}-</p>
+
+        <pre>
+            <code ng-non-bindable>
+                3 + 3 = {{3 + 3}}
+                JavaScript = {{'Java' + 'Script' }}
+                true === false is {{true === false}}
+                wybaczają  -{{a.b.c}}-
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h3>expression po co ?</h3>
+
+        <p>łączy widok z modelem</p>
+
+        <input ng-model="class.style"/>
+        <div style="background-color:{{class.style}}">
+            <button>Guziczek</button>
+        </div>
+        <pre>
+            <code ng-non-bindable>
+                <input ng-model="class.style"/>
+                <div style="background-color:{{class.style}}">
+                    <button>Guziczek</button>
+                </div>
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h3>$scope</h3>
+        <ul>
+            <li>odnosi się do modelu aplikacji</li>
+            <li>hierarchia jest podobna do hierarchi DOM</li>
+            <li>udostępnia API $watch, $apply</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>$scope</h3>
+        <ul>
+            <li>odnosi się do modelu aplikacji</li>
+            <li>hierarchia jest podobna do hierarchi DOM</li>
+            <li>udostępnia API $watch, $apply</li>
+            <li>$watch pozwala obserwować zmiany modelu</li>
+            <li>$apply pozwala informować o zmianach modelu</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Troche teorii</h2>
+        <small>
+            <h3>Bez Angularjs</h3>
+            <ul>
+                <li>event loop przeglądarki czeka na zdarzenie</li>
+                <li>pojawia się zdarzenie (wpisujemy tekst)</li>
+                <li>event callback jest wywoływany i JS modyfikuję DOM</li>
+                <li>gdy callback jest wykonany przeglądarka wyświetla widok na podstawie DOM</li>
+            </ul>
+        </small>
+        <img src="images/concepts-runtime.png" alt=""/>
+    </section>
+    <section>
+        <h2>Troche teorii</h2>
+        <small>
+            <h3>Angularjs</h3>
+            <ul>
+                <li>własny flow reagowania na zmiany, który dzieli się na zdarzenia w kontekście Angular i poza</li>
+                <li>pojawia się zdarzenie (wpisujemy tekst)</li>
+                <li>odpalany jest $digest loop, który składa się z dwóch mniejszych pętli</li>
+                <li>$evalAsync (co wykonać) i $watch (co zmienić) </li>
+                <li>gdy pętla $digest jest zakończona przeglądarka robi re-render DOM</li>
+            </ul>
+        </small>
+        <img src="images/concepts-runtime.png" alt=""/>
+    </section>
+
+    <section>
+        <div ng-controller="ScopeController">
+            <h3>$scope data-binding</h3>
+            <h4>two way data binding</h4>
+            <div><small>{{element}}</small></div>
+            <input type="text" ng-model="element"/>
+            <button ng-click="add()">Dodaj</button>
+            <div>
+                <ul ng-repeat="element in elements">
+                    <small>
+                        <li>{{element}}</li>
+                    </small>
+                </ul>
+            </div>
+        </div>
+        <pre>
+            <code ng-non-bindable>
+                <div ng-controller="ScopeController">
+                    <h4>Dodaj element</h4>
+                    <input type="text" ng-model="element"/>
+                    <button ng-click="add()">Dodaj</button>
+                    <div>
+                        <ul ng-repeat="element in elements">
+                            <small>
+                                <li>{{element}}</li>
+                            </small>
+                        </ul>
+                    </div>
+                </div>
+            </code>
+        </pre>
+    </section>
+
+
+    <section>
+        <h3>Two way data binding</h3>
+        <h4>znowu teoria</h4>
+        <table style="width: 100%">
+            <tr>
+                <td style="width: 50%">
+                    <h4>Tradycyjne podejście (?)</h4>
+                    <img src="images/One_Way_Data_Binding.png" alt=""/>
+                </td>
+                <td style="width: 50%">
+                    <h4>AngularJS</h4>
+                    <img src="images/Two_Way_Data_Binding.png" alt=""/>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <div ng-controller="ScopeController">
+            <h3>$scope data-binding</h3>
+            <h4>two way data binding</h4>
+            <div><small>{{element}}</small></div>
+            <input type="text" ng-model="element"/>
+            <button ng-click="add()">Dodaj</button>
+            <div>
+                <ul ng-repeat="element in elements">
+                    <small>
+                        <li>{{element}}</li>
+                    </small>
+                </ul>
+            </div>
+        </div>
+        <pre>
+            <code ng-non-bindable>
+        angular.module('ngApp', [])
+            .controller('ScopeController',['$scope',function($scope){
+                $scope.elements = ['pierwszy','drugi','trzeci'];
+                $scope.add = function(){
+                $scope.elements.push($scope.element);
+                $scope.element = "";
+            };
+        }]);
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h4>two way data binding pułapka</h4>
+        <small>
+
+            <input type="text" ng-model="message">
+            <h6>Root {{message}}</h6>
+            </input>
+            <div ng-controller="ScopeFirstController">
+                <input type="text" ng-model="message">
+                <h6>Pierwszy {{message}}</h6>
+                </input>
+            </div>
+            <div ng-controller="ScopeThreeController">
+                <input type="text" ng-model="message">
+                <h6>Drugi {{message}}</h6>
+                </input>
+            </div>
+        </small>
+
+        <pre>
+            <code ng-non-bindable>
+                <input type="text" ng-model="message">
+                <h6>Root {{message}}</h6>
+                </input>
+                <div ng-controller="ScopeFirstController">
+                    <input type="text" ng-model="message">
+                    <h6>Pierwszy {{message}}</h6>
+                    </input>
+                </div>
+                <div ng-controller="ScopeThreeController">
+                    <input type="text" ng-model="message">
+                    <h6>Drugi {{message}}</h6>
+                    </input>
+                </div>
+            </code>
+        </pre>
+
+    </section>
+
+    <section>
+        <h4>two way data binding pułapka</h4>
+        <small>
+
+            <input type="text" ng-model="message">
+            <h6>Root {{message}}</h6>
+            </input>
+            <div ng-controller="ScopeFirstController">
+                <input type="text" ng-model="message">
+                <h6>Pierwszy {{message}}</h6>
+                </input>
+            </div>
+            <div ng-controller="ScopeThreeController">
+                <input type="text" ng-model="message">
+                <h6>Drugi {{message}}</h6>
+                </input>
+            </div>
+        </small>
+
+        <pre>
+            <code ng-non-bindable>
+            .controller('ScopeFirstController',['$scope', function($scope){
+            }])
+            .controller('ScopeThreeController',['$scope', function($scope){
+            }]);
+            </code>
+        </pre>
+
+    </section>
+
+    <section>
+        <h4>two way data binding poprawny model</h4>
+            <small>
+                <h6>two way data binding pułapka</h6>
+                <input type="text" ng-model="data.message">
+                     <h6>Root {{data.message}}</h6>
+                </input>
+                <div ng-controller="ScopeFirstController">
+                    <input type="text" ng-model="data.message">
+                    <h6>Pierwszy {{data.message}}</h6>
+                    </input>
+                </div>
+                <div ng-controller="ScopeThreeController">
+                    <input type="text" ng-model="data.message">
+                    <h6>Drugi {{data.message}}</h6>
+                    </input>
+                </div>
+            </small>
+        <pre>
+            <code ng-non-bindable>
+                <input type="text" ng-model="data.message">
+                <h6>Root {{data.message}}</h6>
+                </input>
+                <div ng-controller="ScopeFirstController">
+                    <input type="text" ng-model="data.message">
+                    <h6>Pierwszy {{data.message}}</h6>
+                    </input>
+                </div>
+                <div ng-controller="ScopeThreeController">
+                    <input type="text" ng-model="data.message">
+                    <h6>Drugi {{data.message}}</h6>
+                    </input>
+                </div>
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h4>two way data binding poprawny model</h4>
+        <small>
+
+            <input type="text" ng-model="message">
+            <h6>Root {{message}}</h6>
+            </input>
+            <div ng-controller="ScopeFirstController">
+                <input type="text" ng-model="message">
+                <h6>Pierwszy {{message}}</h6>
+                </input>
+            </div>
+            <div ng-controller="ScopeThreeController">
+                <input type="text" ng-model="message">
+                <h6>Drugi {{message}}</h6>
+                </input>
+            </div>
+        </small>
+
+        <pre>
+            <code ng-non-bindable>
+            .controller('ScopeFirstController',['$scope', function($scope){
+            }])
+            .controller('ScopeThreeController',['$scope', function($scope){
+                $scope.data = {message:"juz jestem"};
+            }]);
+            </code>
+        </pre>
+
+    </section>
 </section>
 
 
@@ -83,22 +391,23 @@
 
 <section>
     <section>
-        <h2>AngularJS framework</h2>
+        <h2>AngularJS</h2>
         <ul>
             <li>Produkt Google (Open source)</li>
+            <li>Framework ???</li>
             <li>Silny podział na warstwy (MVW)</li>
             <li>Duży nacisk na testowalność</li>
         </ul>
-
+        <p/>
         <blockquote>
-            I hereby declare AngularJS to be MVW framework - Model-View-Whatever. Where Whatever stands for "whatever
-            works for you".
+            I hereby declare AngularJS to be MVW framework - Model-View-Whatever.
+            Where Whatever stands for "whatever works for you".
         </blockquote>
         <p><i>Igor Minar</i></p>
     </section>
 
     <section>
-        <h4>Długa i pokrętna ścieżka do oświecenia oświecenia</h4>
+        <h4>Długa i pokrętna ścieżka do oświecenia</h4>
         <img src="images/learning.png" alt=""/>
     </section>
 
@@ -107,148 +416,31 @@
 
 <section>
 
-    <section>
-        <h1>Data binding</h1>
-    </section>
 
-
-    <section>
-        <h2>Hello, {{name}}!</h2>
-        <input type="text" ng-model="name"/>
-        <pre>
-            <code ng-non-bindable>&lt;!DOCTYPE html&gt;
-                &lt;!-- ex:start --&gt;
-                &lt;html ng-app&gt;
-                &lt;head&gt;
-                &lt;script src=&quot;angular.js&quot;&gt;&lt;/script&gt;
-                &lt;/head&gt;
-                &lt;body&gt;
-
-                &lt;h1&gt;Hello, {{name}}!&lt;/h1&gt;
-                &lt;input type=&quot;text&quot; ng-model=&quot;name&quot;/&gt;
-
-                &lt;/body&gt;
-                &lt;/html&gt;
-                &lt;!-- ex:end --&gt;</code></pre>
-    </section>
-
-    <section>
-        <table style="width: 100%">
-            <tr>
-                <td style="width: 50%">
-                    <h4>Tradycyjne podejście (?)</h4>
-                    <img src="images/One_Way_Data_Binding.png" alt=""/>
-                </td>
-                <td style="width: 50%">
-                    <h4>AngularJS</h4>
-                    <img src="images/Two_Way_Data_Binding.png" alt=""/>
-                </td>
-            </tr>
-        </table>
-    </section>
-
-    <section>
-        <h2>Jak to działa?</h2>
-
-        <h3>$digest</h3>
-        <img src="images/concepts-runtime.png" alt=""/>
-    </section>
-
-    <section>
-        <h2>$scope</h2>
-
-        <h4>
-            <blockquote>
-                Scope is the glue between application controller and the view. During the template linking phase the
-                directives set up $watch expressions on the scope.
-                The $watch allows the directives to be notified of property changes, which allows the directive to
-                render the updated value to the DOM.
-            </blockquote>
-        </h4>
-    </section>
-
-    <section>
-        <div ng-controller="ScopeController">
-            <h4>Dodaj element</h4>
-            <input type="text" ng-model="element"/>
-            <button ng-click="add()">Dodaj</button>
-            <div>
-                <ul ng-repeat="element in elements">
-                    <small>
-                        <li>{{element}}</li>
-                    </small>
-                </ul>
-            </div>
-        </div>
-        <pre>
-            <code ng-non-bindable>
-                &lt;div ng-controller="ScopeController"&gt;
-                &lt;h2&gt;Dodaj element &lt;/h2&gt;
-                &lt;input type="text" ng-model="element" /&gt;
-                &lt;button ng-click="add()" >Dodaj &lt;/button&gt;
-                &lt;div&gt;
-                &lt;ul ng-repeat="element in elements">
-                &lt;small&gt; &lt;li&gt;{{element}} &lt;/li&gt; &lt;/small&gt;
-                &lt;/ul&gt;
-                &lt;/div&gt;
-                &lt;/div&gt;
-
-            </code>
-
-        </pre>
-    </section>
-
-    <section>
-        <div ng-controller="ScopeController">
-            <h4>Dodaj element</h4>
-            <input type="text" ng-model="element"/>
-            <button ng-click="add()">Dodaj</button>
-            <div>
-                <ul ng-repeat="element in elements">
-                    <small>
-                        <li>{{element}}</li>
-                    </small>
-                </ul>
-            </div>
-        </div>
-        <pre>
-            <code ng-non-bindable>
-                angular.module('ngApp', [])
-                .controller('ScopeController',['$scope',function($scope){
-                $scope.elements = ['pierwszy','drugi','trzeci'];
-
-                $scope.add = function(){
-                $scope.elements.push($scope.element);
-                $scope.element = "";
-                };
-                }])
-            </code>
-        </pre>
-    </section>
 
 
 </section>
 
 <section>
 
-<section>
-    <h2>Modules and Dependency Injection</h2>
-    <blockquote>
-        "I was expecting a paradigm shift, and all I got was a lousy constructor"
-    </blockquote>
-</section>
+    <section>
+        <h2>Modules and Dependency Injection</h2>
+        <blockquote>
+            "I was expecting a paradigm shift, and all I got was a lousy constructor"
+        </blockquote>
+    </section>
 
-<section>
-    <h2>DI in AngularJS</h2>
-    <ul>
-        <li><code>$provide</code> allows us to register recipes for object creation</li>
-        <li><code>$injector</code> gives access to singletons produced based on those recipes (service locator)</li>
-        <li>Singleton instances are called "services"</li>
-    </ul>
-</section>
+    <section>
+        <h2>DI in AngularJS</h2>
+        <ul>
+            <li><code>$provide</code> allows us to register recipes for object creation</li>
+            <li><code>$injector</code> gives access to singletons produced based on those recipes (service locator)</li>
+            <li>Singleton instances are called "services"</li>
+        </ul>
+    </section>
 
-<section>
-    <h2>Bezpośrednie wstrzykiwanie</h2>
+    <section>
+        <h2>Bezpośrednie wstrzykiwanie</h2>
         <pre>
             <code ng-non-bindable>
                 function MyController($scope, greeter) {
@@ -257,10 +449,10 @@
             </code>
 
         </pre>
-</section>
+    </section>
 
-<section>
-    <h2>Przez $injector</h2>
+    <section>
+        <h2>Przez $injector</h2>
         <pre>
             <code ng-non-bindable>
                 var MyController = function(renamed$scope, renamedGreeter) {
@@ -270,10 +462,10 @@
             </code>
 
         </pre>
-</section>
+    </section>
 
-<section>
-    <h2>Rekomendowane</h2>
+    <section>
+        <h2>Rekomendowane</h2>
         <pre>
             <code ng-non-bindable>
                 someModule.factory('greeter', ['$window', function(renamed$window) {
@@ -282,25 +474,23 @@
             </code>
 
         </pre>
-</section>
+    </section>
 
 
-<section>
-    <h2>Modules accept various recipes</h2>
-    <ul>
-        <li>Values</li>
-        <li>Services</li>
-        <li>Factories</li>
-        <li>Constants</li>
-    </ul>
-</section>
-
-</section>
-
+    <section>
+        <h2>Modules accept various recipes</h2>
+        <ul>
+            <li>Values</li>
+            <li>Services</li>
+            <li>Factories</li>
+            <li>Constants</li>
+        </ul>
+    </section>
 
 </section>
 
 
+</section>
 
 
 </div>
