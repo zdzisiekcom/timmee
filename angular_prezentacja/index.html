@@ -214,20 +214,6 @@ for(var k in byProject){
 
 <section>
     <section>
-    <h3>Co robi Pawel</h3>
-    <ul>
-        <li>REST</li>
-        <li>Routing</li>
-    </ul>
-    <pre>
-        <code>
-            Proste przyklady jak się da to w prezentacji
-        </code>
-    </pre>
-    </section>
-
-
-    <section>
         <h3>expression</h3>
 
         <p>3 + 3 = {{3 + 3}}</p>
@@ -563,7 +549,7 @@ for(var k in byProject){
             config(function(injectables) {
                 //kofiguracja stałych,
                 //własne providery (np data)
-                //routing
+                //routing, $http header, klucze, itp
             }).
             run(function(injectables) { // instance-injector
                 //umieszczamy rzeczy, które chcemy by
@@ -720,25 +706,180 @@ for(var k in byProject){
         </pre>
     </section>
 
-</section>
+    <section>
+        <h3>REST</h3>
+        <ul>
+            <li>$http</li>
+            <li>$resources - jako oddzielny moduł ngResources</li>
+        </ul>
+    </section>
 
+    <section>
+        <h3>$http - GET</h3>
+        <pre>
+            <code ng-non-bindable>
+                $http.get('/someUrl', [config]).
+                    success(function(data, status, headers, config) {
+                        //sukces
+                }).
+                    error(function(data, status, headers, config) {
+                        //smuteczek
+                });
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h3>$http - POST</h3>
+        <pre>
+            <code ng-non-bindable>
+                $http.post('/someUrl', data, [config]).
+                    success(function(data, status, headers, config) {
+                         //sukces
+                    }).
+                    error(function(data, status, headers, config) {
+                        //smuteczek
+                });
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h3>$http zwraca 'promise' </h3>
+        <pre>
+            <code ng-non-bindable>
+               var promise =  $http.get('/someUrl');
+
+               promise.then(
+                    function(value) {
+                        //sukces
+                    },
+                    function(error) {
+                        //smuteczek
+                    });
+                });
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h3>$http przykład </h3>
+        <small>
+        <div ng-controller="PhonesCtrl">
+                <label for="id">Id</label>
+                <input id="id" ng-model="phone.id">
+                <label for="name">Nazwa</label>
+                <input id="name" ng-model="phone.name">
+                <button ng-click='add(phone)'> Dodaj</button>
+             <table>
+                  <tr>
+                      <td>Identyfikator</td>
+                      <td>Nazwa</td>
+                  </tr>
+                  <tr ng-repeat="phone in phones | limitTo: 4">
+                      <td>{{phone.id}}</td>
+                      <td>{{phone.name}}</td>
+                  </tr>
+              </table>
+        </div>
+        </small>
+    </section>
+
+    <section>
+        <h3>$http przykład - kontroler </h3>
+            <pre>
+            <code ng-non-bindable>
+        .controller('PhonesCtrl',['$scope','PhonesService',
+          function($scope, PhonesService){
+            PhonesService.getAll().then(function(result){
+                $scope.phones = result.data;
+            });
+            $scope.add = function(phone){
+                var phone = {id: phone.id, name:phone.name
+                , snippet:'timmeee'};
+                PhonesService.save(phone).then(function(result){
+                    $scope.phones = result.data;
+                });
+                $scope.phone = {};}}])
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h3>$http przykład - serwis </h3>
+            <pre>
+            <code ng-non-bindable>
+        .factory('PhonesService',['$http', function($http){
+            var phonesService = {};
+            phonesService.getAll = function(){
+                var promise = $http.get('/pathUrl');
+                return promise;
+            }
+            phonesService.save = function(phone) {
+                var promise = $http.post('/pathUrl', phone);
+                return promise;
+            }
+            return phonesService;}]);
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h3>$resources</h3>
+        <ul>
+            <li>wraper na $http</li>
+            <li>operacje al'a CRUD</li>
+            <li>możliwość tworzenia własnych akcji</li>
+            <li>długi REST'owy url /message/:listController:id/:docController</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>$resources - konfiguracja</h3>
+        <pre>
+            <code>
+   var app = angular.module('someModule',['ngResources']);
+    app.factory('SomeService',['$resource', function($resource) {
+      var message = $resource('/message/:listController:id/:docController',{
+                id:"@id",
+                listController:"@listController",
+                docController: "@docController"
+            }
+    });
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h3>$resources - konfiguracja akcji</h3>
+        <pre>
+            <code>
+    var message = $resource('/(...)/:listController:id/:docController',{
+        //parametry już są
+    },{
+        clear : {
+            method: "POST",
+            params : {listController:"do-your-magic"}
+        },
+        archive: {
+            method: "POST",
+            params: { docController:"archive" }
+        }}
+    message.clear();
+    message.query({id:1}) || message.query();
+    message.archive({id:1})
+    message.save(messageObject);
+            </code>
+        </pre>
+    </section>
+
+
+</section>
 
 <section>
-    <h3>Co robi Mateusz</h3>
-    <ul>
-        <li>Filtry</li>
-        <li>Dyrektywy (AEC)</li>
-        <li>Services</li>
-    </ul>
-    <pre>
-        <code>
-            Proste przyklady jak się da to w prezentacji
-        </code>
-    </pre>
+       <h3>Dziękujemy bardzo za uwagę!</h3>
+        <img src="images/yoda.jpg" alt=""/>
 </section>
-
-
-
 </section>
 
 
