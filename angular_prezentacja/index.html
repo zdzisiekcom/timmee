@@ -34,19 +34,19 @@
     <section>
     <h3>JavaScript jest wszędzie</h3>
     <ul>
-        <li>Jest w przeglądarce</li>
-        <li>Jest na serwerze</li>
-        <li>Działa jako język skryptowy</li>
-        <li>Nawet w JVM-ie można go wcisnąć</li>
-        <li>w dodatku jest językiem funkcyjnym</li>
+        <li>jest w przeglądarce</li>
+        <li>jest na serwerze</li>
+        <li>działa jako język skryptowy</li>
+        <li>nawet w JVM-ie można go wcisnąć</li>
+        <li>jest bardziej funkcyjny niż java 8</li>
     </ul>
     </section>
     <section>
         <h2>na serwerze</h2>
         <ul>
-            <li>node.js - v8 z chrome</li>
             <li>Rhino - od mozilli</li>
             <li>Nashorn - od oracle</li>
+            <li>node.js - v8 z chrome</li>
 
             <pre>
             <code ng-non-bindable>
@@ -156,6 +156,32 @@ for(var k in byProject){
 
 </script>        
     </section>
+
+    <section>
+        <h2>i jeszcze na serwerze - npm</h2>
+        <ul>    
+            <li>taki trochę ant</li>
+            <li>trochę w połączeniu z ivy</li>
+            <li>w dodatku można nim zainstalować <a href="https://github.com/bower/bower">bowera</a>, który robi to samo, tylko trochę inaczej :) </li>
+        </ul>
+        <pre>
+        <code>
+{
+  "version": "0.0.0",
+  "private": true,
+  "name": "timmee",
+  "devDependencies": {
+    "hapi": "^5.0.0"
+   },
+  "scripts": {
+    "prestart": "npm install",
+    "start": "node server.js"
+  }   
+}        
+        </code>
+        </pre>
+    </section>
+
 </section>
 
 
@@ -185,19 +211,6 @@ for(var k in byProject){
 </section>
 
 
-<section>
-    <h3>Co robi Mateusz</h3>
-    <ul>
-        <li>Filtry</li>
-        <li>Dyrektywy (AEC)</li>
-        <li>Services</li>
-    </ul>
-    <pre>
-        <code>
-            Proste przyklady jak się da to w prezentacji
-        </code>
-    </pre>
-</section>
 
 <section>
     <section>
@@ -708,6 +721,22 @@ for(var k in byProject){
     </section>
 
 </section>
+
+
+<section>
+    <h3>Co robi Mateusz</h3>
+    <ul>
+        <li>Filtry</li>
+        <li>Dyrektywy (AEC)</li>
+        <li>Services</li>
+    </ul>
+    <pre>
+        <code>
+            Proste przyklady jak się da to w prezentacji
+        </code>
+    </pre>
+</section>
+
 
 
 </section>
