@@ -74,10 +74,8 @@
     <section>
     <h3>Co robi Pawel</h3>
     <ul>
-        <li>$scope i data-binding</li>
         <li>REST</li>
         <li>Routing</li>
-        <li>Moduly + DI</li>
     </ul>
     <pre>
         <code>
@@ -416,6 +414,27 @@
     </section>
 
     <section>
+        <h3>Moduły config/run</h3>
+        <pre>
+            <code ng-non-bindable>
+        angular.module('myModule', []).
+            config(function(injectables) {
+                //kofiguracja stałych,
+                //własne providery (np data)
+                //routing
+            }).
+            run(function(injectables) { // instance-injector
+                //umieszczamy rzeczy, które chcemy by
+                //działały w trakcie trwania aplikacji
+                //np spradzamy czy jest jakaś nowa aktualizacja z serwera
+        });
+            </code>
+
+        </pre>
+
+    </section>
+
+    <section>
         <h3>Dependecy Injection in AngularJS</h3>
         <img src="images/concepts-module-injector.png" alt=""/>
         <h4>$injector (service locator)</h4>
@@ -462,6 +481,99 @@
             someModule.factory('greeter', ['$window', function(renamed$window) {
             // ...
             }]);
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h3>Routing</h3>
+        <ul>
+            <li>angular-route</li>
+            <li>przykład wyodrębnienia funkcjonalności do oddzielnego modułu</li>
+            <li>/#/somepath</li>
+            <li>ng-view</li>
+        </ul>
+
+    </section>
+
+    <section>
+        <h3>Routing ngView</h3>
+        <pre>
+            <code ng-non-bindable>
+                &lthead&gt
+                    ...
+                    <script src="(..)/angular-route.js"></script>
+                &lt/head&gt
+                body
+                ...
+                <div ng-view></div>
+                &lt/body&gt
+            </code>
+        </pre>
+
+        <p>ng-view jest dyrektywą, której zadanie jest prezentowanie odpowiedniej strony (szablonu)</p>
+
+    </section>
+
+    <section>
+        <h3>Routing konfiguracja</h3>
+        <pre>
+            <code ng-non-bindable>
+            var app = angular.module('app',['ngRoute']);
+
+            app.config(["$routeProvider",
+            function($routeProvider){
+                $routeProvider.when('/persons', {
+                            templateUrl: 'partials/persons.html',
+                            controller : 'PersonsCtrl'
+                });
+                $routeProvider.when('/persons/:personId', {
+                            templateUrl: 'partials/person-details.html',
+                            controller : 'PersonDetailsCtrl'
+                });
+                $routeProvider.otherwise({redirectTo:'/persons'});
+            }]);
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h3>Routing kontroler</h3>
+        <pre>
+            <code ng-non-bindable>
+     var personCtrl = angular.module('controller',[]);
+         personCtrl.controller('PersonCtrl', function(){
+            ...
+        });
+        personCtrl.controller('PersonDetailCtrl', ['$scope','$routeParams',
+                function($scope,$routeParams){
+                    $scope.personId = $routeParams.personId;
+                    ...
+
+                }]);
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h3>Routing konfiguracja - resolver</h3>
+        <pre>
+            <code ng-non-bindable>
+                app.config(["$routeProvider",
+                function($routeProvider){
+                $routeProvider.when('/quote',{
+                templateUrl: 'partials/quote.html',
+                controller : 'QuoteCtrl',
+                resolve : {
+                quotes : function(QuoteServices) {
+                return QuoteServices.quotes();
+                }});
+                //---controller
+                var quoteCtrl = angular.module('controller', []);
+                quoteCtrl.controller("QuoteCtrl",
+                ['$scope', 'quotes', function ($scope, quotes) {
+                $scope.quotes = quotes.data;
+                }]);
             </code>
         </pre>
     </section>
