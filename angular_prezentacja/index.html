@@ -22,11 +22,37 @@
 <div class="slides">
 
 <section>
-    <h2>Angular for java developers</h2>
+    <h2>Angularjs for java developers</h2>
 
     <p>Mateusz Sobczak</p>
 
     <p>Paweł Cierpiatka</p>
+</section>
+
+
+<section>
+    <section>
+        <h2>AngularJS</h2>
+        <ul>
+            <li>Produkt Google (Open source)</li>
+            <li>Framework ???</li>
+            <li>Silny podział na warstwy (MVW)</li>
+            <li>Duży nacisk na testowalność</li>
+        </ul>
+        <p/>
+        <blockquote>
+            I hereby declare AngularJS to be MVW framework - Model-View-Whatever.
+            Where Whatever stands for "whatever works for you".
+        </blockquote>
+        <p><i>Igor Minar</i></p>
+    </section>
+
+    <section>
+        <h4>Długa i pokrętna ścieżka do oświecenia</h4>
+        <img src="images/learning.png" alt=""/>
+    </section>
+
+
 </section>
 
 
@@ -107,15 +133,6 @@
             <li>odnosi się do modelu aplikacji</li>
             <li>hierarchia jest podobna do hierarchi DOM</li>
             <li>udostępnia API $watch, $apply</li>
-        </ul>
-    </section>
-
-    <section>
-        <h3>$scope</h3>
-        <ul>
-            <li>odnosi się do modelu aplikacji</li>
-            <li>hierarchia jest podobna do hierarchi DOM</li>
-            <li>udostępnia API $watch, $apply</li>
             <li>$watch pozwala obserwować zmiany modelu</li>
             <li>$apply pozwala informować o zmianach modelu</li>
         </ul>
@@ -143,7 +160,7 @@
                 <li>pojawia się zdarzenie (wpisujemy tekst)</li>
                 <li>odpalany jest $digest loop, który składa się z dwóch mniejszych pętli</li>
                 <li>$evalAsync (co wykonać) i $watch (co zmienić) </li>
-                <li>gdy pętla $digest jest zakończona przeglądarka robi re-render DOM</li>
+                <li>gdy pętla $digest jest zakończona przeglądarka wyświetla widok na podstawie zmienionego DOM</li>
             </ul>
         </small>
         <img src="images/concepts-runtime.png" alt=""/>
@@ -365,126 +382,88 @@
         </pre>
 
     </section>
-</section>
 
-
-<section>
     <section>
-        <h1>o czym będzie</h1>
+        <h3>Moduły</h3>
+        <h4>"Kontener" umożliwiający grupowanie funkcjonalności</h4>
         <ul>
-            <li>co to jest ten angularjs</li>
-            <li>DI, services, filters, directives</li>
-            <li>magiczy $scope, data-binding</li>
-            <li>routing</li>
-            <li>REST</li>
-            <li>testy unitowe</li>
-        </ul>
-    </section>
-    <section>
-        <h2>o czym NIE będzie</h2>
-        <ul>
-            <li>lekarstwa na całe zło</li>
-            <li>szczegółowego omówienia każdego zagadnienia</li>
-        </ul>
-    </section>
-</section>
-
-<section>
-    <section>
-        <h2>AngularJS</h2>
-        <ul>
-            <li>Produkt Google (Open source)</li>
-            <li>Framework ???</li>
-            <li>Silny podział na warstwy (MVW)</li>
-            <li>Duży nacisk na testowalność</li>
-        </ul>
-        <p/>
-        <blockquote>
-            I hereby declare AngularJS to be MVW framework - Model-View-Whatever.
-            Where Whatever stands for "whatever works for you".
-        </blockquote>
-        <p><i>Igor Minar</i></p>
-    </section>
-
-    <section>
-        <h4>Długa i pokrętna ścieżka do oświecenia</h4>
-        <img src="images/learning.png" alt=""/>
-    </section>
-
-</section>
-
-
-<section>
-
-
-
-
-</section>
-
-<section>
-
-    <section>
-        <h2>Modules and Dependency Injection</h2>
-        <blockquote>
-            "I was expecting a paradigm shift, and all I got was a lousy constructor"
-        </blockquote>
-    </section>
-
-    <section>
-        <h2>DI in AngularJS</h2>
-        <ul>
-            <li><code>$provide</code> allows us to register recipes for object creation</li>
-            <li><code>$injector</code> gives access to singletons produced based on those recipes (service locator)</li>
-            <li>Singleton instances are called "services"</li>
+            <li>określa w jaki sposób aplikacja ma być utworzona</li>
+            <li>"reusability"</li>
+            <li>decydujemy kiedy, który moduł wczytujemy</li>
+            <li>testujemy tylko to co chcemy</li>
+            <li>wymusza Low of Demeter</li>
         </ul>
     </section>
 
     <section>
-        <h2>Bezpośrednie wstrzykiwanie</h2>
+        <h3>Moduły</h3>
+        <h4>przykład</h4>
         <pre>
             <code ng-non-bindable>
-                function MyController($scope, greeter) {
-                // ...
-                }
-            </code>
+     var service = angular.module('myApp.service',[]);
+     service.factory('PersonService',['$http', function($http) {
+        ...
+     }]);
 
-        </pre>
-    </section>
-
-    <section>
-        <h2>Przez $injector</h2>
-        <pre>
-            <code ng-non-bindable>
-                var MyController = function(renamed$scope, renamedGreeter) {
+    var personCtrl = angular.module('myApp.controller',['myApp.service']);
+    personCtrl.controller('PersonCtrl',
+                ['PersonService',function(PersonService) {
                 ...
-                }
-                MyController['$inject'] = ['$scope', 'greeter'];
-            </code>
+                }]);
 
+            </code>
         </pre>
     </section>
 
     <section>
-        <h2>Rekomendowane</h2>
+        <h3>Dependecy Injection in AngularJS</h3>
+        <img src="images/concepts-module-injector.png" alt=""/>
+        <h4>$injector (service locator)</h4>
+        <ul>
+            <li>jeden per aplikację</li>
+            <li>odpowiedzialny za wyszukiwanie zależności</li>
+            <li>odpowiedzialny za tworzenie zależności</li>
+            <li>instancje trzymane są w cache</li>
+        </ul>
+
+    </section>
+
+    <section>
+        <h3>Bezpośrednie wstrzykiwanie</h3>
         <pre>
             <code ng-non-bindable>
-                someModule.factory('greeter', ['$window', function(renamed$window) {
-                // ...
-                }]);
+            function MyController($scope, greeter) {
+            // ...
+            }
+            </code>
+        </pre>
+        <h4>
+            Przestaj działać po minifikacji.
+        </h4>
+    </section>
+
+    <section>
+        <h3>Przez $injector</h3>
+        <pre>
+            <code ng-non-bindable>
+            var MyController = function(renamed$scope, renamedGreeter) {
+            ...
+            }
+            MyController['$inject'] = ['$scope', 'greeter'];
             </code>
 
         </pre>
     </section>
 
-
     <section>
-        <h2>Modules accept various recipes</h2>
-        <ul>
-            <li>Values</li>
-            <li>Services</li>
-            <li>Factories</li>
-            <li>Constants</li>
-        </ul>
+        <h3>Rekomendowane</h3>
+        <pre>
+            <code ng-non-bindable>
+            someModule.factory('greeter', ['$window', function(renamed$window) {
+            // ...
+            }]);
+            </code>
+        </pre>
     </section>
 
 </section>
