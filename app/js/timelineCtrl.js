@@ -1,13 +1,9 @@
 'use strict';
 
 var timelineCtrl = angular.module('controller',['service', 'popup']);
-timelineCtrl.controller("TimelineCtrl", ['$scope','TimelineService','EditPopup',function($scope, TimelineService, EditPopup) {
+timelineCtrl.controller("TimelineCtrl", ['$scope','TimelineService',function($scope, TimelineService) {
     TimelineService.findAll(function(data){
         $scope.timeline = data;
     });
-
-    $scope.show = function(){
-        EditPopup.show();
-    }
 
 }]);
