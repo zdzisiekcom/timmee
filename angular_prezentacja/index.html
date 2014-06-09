@@ -163,6 +163,21 @@ for(var k in byProject){
 </script>        
     </section>
 
+	<section>
+	<h3>Clojure</h3>
+<pre>
+<code>
+function foo(x) {
+    var tmp = 3;
+    return function (y) {
+        alert(x + y + (++tmp)); // will also alert 16
+    }
+}
+var bar = foo(2); // bar is now a closure.
+bar(10);
+	
+</section>
+
     <section>
         <h2>i jeszcze na serwerze - npm</h2>
         <ul>    
