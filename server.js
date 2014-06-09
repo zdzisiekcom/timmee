@@ -24,6 +24,17 @@ server.route({
     }
 });
 
+// static route for presetnation
+server.route({
+    method: 'GET',
+    path: '/timmee/{param*}',
+    handler:  {
+		directory : {
+			path : 'angular_prezentacja'
+		}        
+    }
+});
+
 // static route for files
 server.route({
     method: 'GET',

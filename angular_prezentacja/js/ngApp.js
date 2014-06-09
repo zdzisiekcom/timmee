@@ -51,12 +51,12 @@ angular.module('ngApp', [])
         var phonesService = {};
 
         phonesService.getAll = function(){
-            var promise = $http.get('/timmee/angular_prezentacja/json/phones.json');
+            var promise = $http.get('/timmee/json/phones.json');
             return promise;
         }
 
         phonesService.save = function(phone) {
-            var promise = $http.post('/timmee/angular_prezentacja/json/phones.json', phone);
+            var promise = $http.post('/timmee/json/phones.json', phone);
             return promise;
         }
 
