@@ -31,6 +31,12 @@ angular.module('ngApp', [])
     }])
 
     .controller('PhonesCtrl',['$scope','PhonesService', function($scope, PhonesService){
+    	
+    	$scope.phone = {
+    			id : '44',
+    			name : 'Nexus 5'
+    	}
+    	
         PhonesService.getAll().then(function(result){
             $scope.phones = result.data;
         });
@@ -90,4 +96,54 @@ angular.module('ngApp').filter('len', function() {
 }});
 
 
+angular.module('ngApp').directive('myPhoneName', function() {
+    return {
+      restrict : 'AE',
+      template: 'Telefon: {{phone.name}} ({{phone.id}})'
+    };
+  });
 
+angular.module('ngApp').directive('myPhone', function() {
+	return {
+		restrict : 'AE',
+		scope: {
+        	phoneInfo: '=phone'
+      	},
+		template: 'Telefon: {{phoneInfo.name}} ({{phoneInfo.id}})'
+	};
+});
+
+
+
+angular.module('ngApp').controller('timeController', ['$scope', function($scope) {
+  $scope.format = 'yyyy-MM-dd HH:mm:ss';
+}])
+.directive('myCurrentTime', ['$interval', 'dateFilter', function($interval, dateFilter) {
+
+  function link(scope, element, attrs) {
+    var format,
+        timeoutId;
+
+    function updateTime() {
+      element.text(dateFilter(new Date(), format));
+    }
+
+    scope.$watch(attrs.myCurrentTime, function(value) {
+      format = value;
+      updateTime();
+    });
+
+    element.on('$destroy', function() {
+      $interval.cancel(timeoutId);
+    });
+
+    // start the UI update process; save the timeoutId for canceling
+    timeoutId = $interval(function() {
+      updateTime(); // update DOM
+    }, 1000);
+  }
+
+  return {
+    link: link
+  };
+}]);

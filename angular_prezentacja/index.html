@@ -1085,20 +1085,258 @@ angular.module('ngApp').filter('len', function(/* miejsce na DI*/) {
 </section>
 
 <section>
+
     <section>
-    <h3>Co robi Mateusz</h3>
-    <ul>
-        <li>Services</li>
-        <li style="text-decoration:line-through">Filtry</li>
-        <li>Dyrektywy (AEC)</li>
-    </ul>
-    <pre>
-        <code>
-            Proste przyklady jak się da to w prezentacji
-        </code>
-    </pre>
+    	<h1>Dyrektywy</h1>
+    </section>
+    
+    <section>
+    	<h3>Dyrektywy</h3>
+    	<li>przetwarzaja znaczniki na wygląd i zachowanie</li>
+    	<li>przetwarzane są przez serwis <i>$compile</i></li>
+    	<li>możemy je aplikować na różnym poziomie - atrybutu, tagu, klasy</li>
+    	<pre><code ng-non-bindable>
+    		<div my-dir="expr"></div>
+    		<div x-my-dir="expr"></div>
+    		<div data-my:dir="expr"></div>
+    		<my-dir></my-dir>
+    		<div class="my-dir:expr;"></div>
+    	</code></pre>
+    	<p>"<i>x-</i>" i "<i>data-</i>" są wycinane z nazwy dyrektywy</p>
+    	<p>":", "-", "_" są zamieniane na camelCase</p>
+    	<p>"data-my:dir" zostanie z zamienione na dyrektywę "myDir"</p>
     </section>
 
+    <section>
+    	<h3>Wbudowane dyrektywy</h3>
+    	<i>input</i> - nadpisuje domyślne zachowanie tagu "input" dodając bindowanie do modelu
+    	<div ng-controller="serviceControler">
+		    <form name="myForm">
+		    	<input type="text" name="artistName" ng-model="artist" ng-minlength="3" required><br/>
+		    	<small>
+		    		<span class="error" ng-show="myForm.artistName.$error.required">Wymagane!</span>
+		    		<span class="error" ng-show="myForm.artistName.$error.minlength">Minimum 3 znaki!</span>
+		    	</small>
+		    </form>
+    	</div>
+    <pre><code ng-non-bindable>
+<input type="text" name="artistName" ng-model="artist" ng-minlength="3" required>
+<span class="error" ng-show="myForm.artistName.$error.required">Wymagane!</span>
+	</code></pre>
+	</section>
+	
+    <section>
+    	<h3>Wbudowane dyrektywy</h3>
+    	<div ng-controller="ScopeThreeController">
+    		<button ng-click="count = count + 1" ng-init="count=0" >Licznik kliknięć {{count}}</button>
+    	</div>
+    	<pre><code ng-non-bindable>
+    		<button ng-click="count = count + 1" ng-init="count=0" >{{count}}</button>
+    		
+    		<div ng-controller="serviceControler">
+    			...
+    		</div>
+    		
+    		<ANY ng-if=""> ... </ANY>
+    		
+    		<ANY ng-switch="expression">
+			  <ANY ng-switch-when="matchValue1">...</ANY>
+			  <ANY ng-switch-when="matchValue2">...</ANY>
+			  <ANY ng-switch-default>...</ANY>
+			</ANY>
+			
+    	</code></pre>
+	</section>	
+
+    <section>
+    	<h3>Własne dyrektywy</h3>
+    	<div ng-controller="PhonesCtrl">
+		  <div my-phone-name></div>
+		</div>
+    	<pre><code ng-non-bindable>
+    	
+angular.module('ngApp').directive('myPhoneName', function() {
+	return {
+   		template: 'Telefon: {{phone.name}} ({{phone.id}})'
+ 	};
+});
+    	
+<div ng-controller="PhonesCtrl">
+	<div my-phone-name></div>
+</div>
+    	</code></pre>
+    	 
+    	<pre> <code>
+    	templateUrl: 'my-customer.html'
+    	</code></pre>
+	</section>
+	
+	<section>
+    	<h3>Własne dyrektywy</h3>
+    	<h4>restrict</h4>
+    	<li><b>A</b> - atrybuty - <i>domyślne</i></li>
+    	<li><b>E</b> - elementy</li>
+    	<li><b>C</b> - klasy</li>
+
+    	<div ng-controller="PhonesCtrl">
+		  <my-phone-name ></my-phone-name>
+		</div>
+    	<pre><code ng-non-bindable>
+    	
+angular.module('ngApp').directive('myPhoneName', function() {
+	return {
+		restrict: 'E',
+   		template: 'Telefon: {{phone.name}} ({{phone.id}})'
+ 	};
+});
+    	
+<div ng-controller="PhonesCtrl">
+	<my-phone-name ></my-phone-name>
+</div>
+    	</code></pre>    	
+	</section>		
+	
+	<section>
+    	<h3>Własne dyrektywy</h3>
+    	<h4>izolacja scope-a</h4>
+    	
+    	<pre><code ng-non-bindable>
+    	
+angular.module('ngApp').directive('myPhone', function() {
+	return {
+		scope: {
+        	phoneInfo: '=phone'
+      	},
+   		template: 'Telefon: {{phoneInfo.name}} ({{phoneInfo.id}})'
+ 	};
+});
+
+<div ng-repeat="p in phones">
+	<my-phone phone="p"></my-phone>
+</div>
+    	</code></pre>
+
+    	<div ng-controller="PhonesCtrl">
+    		<div ng-repeat="p in phones">
+		  		<my-phone phone="p"></my-phone>
+    		</div>
+		</div>
+		</section>
+    	<section>
+    	
+    	<h3>Własne dyrektywy</h3>
+    	
+<pre><code ng-non-bindable>
+
+angular.module('ngApp').directive('myPhone', function() {
+	return {
+		scope: {
+   		   		phoneInfo: '=phone'
+      	},
+   		transclude: true,
+   		template: 'Telefon: {{phoneInfo.name}} ({{phoneInfo.id}})'
+ 	};
+});
+	
+</code></pre>
+    	<p>Opcja <b>transclude</b> powinna być używana w dyrektywach, które opakowują inne elementy</p>
+<pre><code ng-non-bindable>
+	<my-phone>My phone name is {{phone.name}}</my-phone>
+</code>    	 
+	</section>
+	
+	<section>
+    	<h3>Własne dyrektywy</h3>
+    	<h4>manipulacja domem</h4>
+    	
+    	<pre><code ng-non-bindable>
+
+  .directive('myCurrentTime', ['$interval', 'dateFilter', function($interval, dateFilter) {
+    function link(scope, element, attrs) {
+      var format,
+          timeoutId;
+
+      function updateTime() {
+        element.text(dateFilter(new Date(), format));
+      }
+
+      scope.$watch(attrs.myCurrentTime, function(value) {
+        format = value;
+        updateTime();
+      });
+
+      element.on('$destroy', function() {
+        $interval.cancel(timeoutId);
+      });
+
+      // start the UI update process; save the timeoutId for canceling
+      timeoutId = $interval(function() {
+        updateTime(); // update DOM
+      }, 1000);
+    }
+
+    return {
+      link: link
+    };
+  }]);    	
+    	</code></pre>
+    	
+    	<div ng-controller="timeController">
+    		Current time is: <span my-current-time="format"></span>
+    	</div>
+    	
+	</section>	
+	
+	<section>
+    	<h3>Własne dyrektywy</h3>
+    	<h4>zdarzenia</h4>
+    	<pre><code ng-non-bindable>
+.directive('myDialog', function() {
+    return {
+        transclude: true,
+        scope: {
+            'close': '&onClose'
+        },
+        template: '<div><a href ng-click="close()">×</a><div ng-transclude></div></div>'
+    };
+});
+
+<my-dialog on-close="hideDialog()">Treść okienka</my-dialog>
+
+		</code></pre>    	
+	</section>
+
+	<section>
+    	<h3>Własne dyrektywy</h3>
+    	<h4>zagnieżdżanie dyrektyw</h4>
+    	<pre><code ng-non-bindable>
+angular.module('docsTabsExample', [])
+  .directive('myTabs', function() {
+    return {
+      controller: function($scope) {
+        var panes = $scope.panes = [];
+
+        this.addPane = function(pane) {
+          if (panes.length === 0) {
+            $scope.select(pane);
+          }
+          panes.push(pane);
+        };
+      },
+    };
+  })
+  .directive('myPane', function() {
+    return {
+      require: '^myTabs',
+      link: function(scope, element, attrs, tabsCtrl) {
+        tabsCtrl.addPane(scope);
+      },
+      templateUrl: 'my-pane.html'
+    };
+  });    	
+    	</code></pre>
+	</section>
+	
 </section>
 
 <section>
