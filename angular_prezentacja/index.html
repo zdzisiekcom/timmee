@@ -722,22 +722,12 @@ for(var k in byProject){
 
 </section>
 
-
 <section>
-    <section>
-    <h3>Co robi Mateusz</h3>
-    <ul>
-        <li>Services</li>
-        <li>Filtry</li>
-        <li>Dyrektywy (AEC)</li>
-    </ul>
-    <pre>
-        <code>
-            Proste przyklady jak się da to w prezentacji
-        </code>
-    </pre>
-    </section>
 
+    <section>
+        <h1>Filtry</h1>
+    </section>
+    
     <section>
         <h3>Filtry</h3>
         <p>Służą do przetworzenia dancyh prezentowanych użytkownikowi</p>
@@ -785,10 +775,75 @@ for(var k in byProject){
         </code>
         </pre>
     </section>
-    
+
+    <section>
+        <h2>Własne filtry</h2>
+
+        <div ng-controller="ScopeController">
+            <p>Szukaj: <input type="text" ng-model="lensearch"/> <br/>
+            
+                <li ng-repeat="el in elements | len:lensearch">
+                    {{el}}
+                </li>
+            
+            </p>
+        </div>             
+        <pre>
+        <code ng-non-bindable>
+angular.module('ngApp').filter('len', function(/* miejsce na DI*/) {
+    return function(input, minlength) {
+
+    var input  = input || Array();
+
+    return input.filter(function(el){
+         return (el.length >= minlength);
+    });
+}})        
+        </code>
+        </pre> 
+    </section>    
+
+    <section>
+        <h2>Wbudowane filtry</h2>
+        <ul>    
+            <li>date (+format)</li>
+            <li>number</li>
+            <li>json</li> 
+            <li>lowercase / uppercase </li>
+            <li>orderBy</li>
+            <li>limitTo</li>
+        </ul>
+        <pre>
+        <code ng-non-bindable>
+<li ng-repeat="book in library | filter:search | orderBy:'title'  | limitTo: -5 "></li>
+        </code>
+        </pre>
+    </section>
+</section>
 
 </section>
 
+<section>
+    <section>
+        <h1>Serwisy</h1>
+    </section>
+</section>
+
+
+<section>
+    <section>
+    <h3>Co robi Mateusz</h3>
+    <ul>
+        <li>Services</li>
+        <li style="text-decoration:line-through">Filtry</li>
+        <li>Dyrektywy (AEC)</li>
+    </ul>
+    <pre>
+        <code>
+            Proste przyklady jak się da to w prezentacji
+        </code>
+    </pre>
+    </section>
 
 
 </section>
