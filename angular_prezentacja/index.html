@@ -713,6 +713,100 @@ for(var k in byProject){
     <section>
         <h1>Serwisy</h1>
     </section>
+
+    <section>
+        <h2>Service</h2>
+        <p>Otrzymujemy nowy obiekt z którego możemy korzystać bezpośrednio w kontrolerze i w innych serwisach poprzez DI</p>
+
+        <div ng-controller="serviceControler">
+            <p><i>Kontroler 1:</i> Artysta: <input type="text" ng-model="artist"/> <br/>
+        </div>
+
+        <div ng-controller="secondServiceControler">
+            <i>Kontroler 2:</i> <button ng-click="checkArtist()">Sprawdź</button>
+        </div>
+        <pre>
+        <code>
+.service('artistService', function(){
+    var artist = 'Manson'
+    this.getArtist = function(){
+        return artist;
+    }
+    this.setArtist = function(a){
+        artist = a;
+        console.log('New artist: ' + artist);
+    }
+});            
+        </code>
+        </pre>
+    </section>
+
+    <section>
+        <h2>Factory</h2>
+        <p>Funkcja tworzy i zwraca obiekt z którego możemy korzystać bezpośrednio w kontrolerach i w innych serwisach poprzez DI</p>
+        <pre>
+        <code>
+.factory('artistService', function(){
+    
+    var artist = 'Manson'
+    var service = {};
+
+    service.getArtist = function(){
+        return artist;
+    }
+    
+    return service;
+});            
+        </code>
+        </pre>
+    </section>
+
+    <section>
+        <h2>Provider</h2>
+        <p>Najbardziej rozbudowany sposób definiowania serwisów. Publicznie (w kontrolerach i innych serwisach) dostępna jest tylko część providera 
+        zwracana przez metodę "$get". <br/>
+        Provider jest też jedynym serwisem który przekazać do jako DI w konfiguracji aplikacji, czyli należy go użyć w sytuacji gdy chcemy skonfigurować serwis przed przekazaniem go do pozostałych modułów.
+        </p>
+    </section>
+    <section>
+
+
+    <h2>Provider</h2>
+    <pre>
+    <code>
+.provider('artistService', function(){
+    var artist = 'Manson'
+    this.$get = function(){
+        var that = this;
+        return {
+            getArtist: function(){
+                return that._artist;
+            }
+        }
+    }
+});    
+
+app.config(function(artistService){
+  artistService.artist = ‘Marlin Manson’;
+});
+
+    </code>
+    </pre>
+    </section>
+
+    <section>
+        <h3>Wbudowane serwisy</h3>
+        <ul>
+            <li>$animate</li>
+            <li>$rootScope</li>
+            <li>$exceptionHandler</li>
+            <li>$http</li>
+            <li>$q</li>
+            <li>$timeout</li>
+            <li>$window, $document</li>
+        </ul>
+    </section>
+
 </section>
 
 

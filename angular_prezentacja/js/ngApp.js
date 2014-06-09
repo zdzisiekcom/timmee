@@ -18,6 +18,18 @@ angular.module('ngApp', [])
 
     }])
 
+    .controller('serviceControler',['$scope', 'artistService', function($scope,artistService){
+        $scope.artist = artistService.getArtist();
+        $scope.$watch('artist', function(newval, oldval){
+            artistService.setArtist(newval)
+        });
+    }])
+    .controller('secondServiceControler',['$scope', 'artistService', function($scope,artistService){
+        $scope.checkArtist = function() {
+            alert(artistService.getArtist());
+        };
+    }])
+
     .controller('PhonesCtrl',['$scope','PhonesService', function($scope, PhonesService){
         PhonesService.getAll().then(function(result){
             $scope.phones = result.data;
@@ -49,7 +61,21 @@ angular.module('ngApp', [])
         }
 
         return phonesService;
-    }]);
+    }])
+
+    .service('artistService', function(){
+        
+        var artist = 'Manson'
+
+        this.getArtist = function(){
+            return artist;
+        }
+
+        this.setArtist = function(a){
+            artist = a;
+            console.log('New artist: ' + artist);
+        }
+    });
 
 
 angular.module('ngApp').filter('len', function() {
@@ -64,4 +90,4 @@ angular.module('ngApp').filter('len', function() {
 }});
 
 
-angular.module('ngApp');
+
