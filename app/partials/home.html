@@ -7,11 +7,64 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label class="control-label">Search</label>
+
                 <div class="input-group">
                     <span class="input-group-addon">Full search</span>
                     <input type="text" class="form-control" ng-model="query">
                 </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Dodaj</span>
+                    <input type="checkbox" class="form-control" ng-model="showAddPanel"/>
+                </div>
+
+
             </div>
+        </div>
+
+        <div class="col-lg-10" ng-show="showAddPanel">
+            <form ng-submit="addEvent(timeEvent)" >
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Start</span>
+                            <input type="text" class="form-control" ng-model="timeEvent.start_date">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">End</span>
+                            <input type="text" class="form-control" ng-model="timeEvent.end_date">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Project</span>
+                            <input type="text" class="form-control" ng-model="timeEvent.project">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Description</span>
+                            <input type="text" class="form-control" ng-model="timeEvent.description">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Task</span>
+                            <input type="text" class="form-control" ng-model="timeEvent.task">
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary pull-right" value="Dodaj" />
+            </form>
         </div>
 
         <div class="bs-component">
@@ -26,16 +79,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="timeEvent in timeline | filter:query | orderBy:orderProp ">
-                        <td>{{timeEvent.start_data}}</td>
-                        <td>{{timeEvent.end_data}}</td>
-                        <td>{{timeEvent.project}}</td>
-                        <td>{{timeEvent.description}}</td>
-                        <td>{{timeEvent.task}}</td>
-                    </tr>
+                <tr ng-repeat="timeEvent in timeline | filter:query | orderBy:orderProp ">
+                    <td>{{timeEvent.start_date}}</td>
+                    <td>{{timeEvent.end_date}}</td>
+                    <td>{{timeEvent.project}}</td>
+                    <td>{{timeEvent.description}}</td>
+                    <td>{{timeEvent.task}}</td>
+                </tr>
 
                 </tbody>
             </table>
-            <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div><!-- /example -->
+            <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
+        </div>
+        <!-- /example -->
     </div>
 </div>
